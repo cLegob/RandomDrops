@@ -1,6 +1,5 @@
 package jsextensions.randomdrops;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
@@ -18,7 +17,7 @@ public class DropManager implements Listener {
     }
 
     private Random random = new Random();
-    private HashMap<Material, Material> dropMap = new HashMap<>();
+    public HashMap<Material, Material> dropMap = new HashMap<>();
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
@@ -38,7 +37,6 @@ public class DropManager implements Listener {
             }
             ItemStack drop = new ItemStack(dropMaterial, 1);
             e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(), drop);
-            Bukkit.broadcastMessage(drop.toString());
         }
     }
 }
